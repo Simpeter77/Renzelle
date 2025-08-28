@@ -1,18 +1,17 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
+const express = require('express');
+const app = express();
 
-const app = express()
-
-app.use(express.json())
-
-dotenv.config()
-const port = process.env.PORT || 5000
-
-//render on ejs
-app.set('view engine', 'ejs')
+// Middleware
+app.use(express.json());
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
-//for index
-const indexRoute = require('./routes/index.js')
-app.use("/", indexRoute)
+// Routes
+const indexRoute = require('./routes/index.js');
+app.use("/", indexRoute);
+
+// Listen on the port Render provides, or default to 10000 locally
+const port = process.env.PORT || 10000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
