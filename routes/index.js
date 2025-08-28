@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-function calculateAge(birthdateStr) {
-    const birthdate = new Date(birthdateStr);
+function calculateAge() {
+    const birthdate = new Date("2005-08-28");
     const today = new Date();
 
     let years = today.getFullYear() - birthdate.getFullYear();
