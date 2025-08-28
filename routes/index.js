@@ -1,17 +1,16 @@
 const express = require('express')
 const router = express.Router()
-function calculateAge() {
-    const birthdate = new Date("2005-08-28");
+function calculateAge(birthdateStr) {
+    const birthdate = new Date(birthdateStr);
     const today = new Date();
 
     let years = today.getFullYear() - birthdate.getFullYear();
+    const month = today.getMonth() - birthdate.getMonth();
+    const day = today.getDate() - birthdate.getDate();
 
-    const hasHadBirthday =
-        today.getMonth() > birthdate.getMonth() ||
-        (today.getMonth() === birthdate.getMonth() && today.getDate() >= birthdate.getDate());
-
-    if (!hasHadBirthday) years--;
-
+    if (month < 0 || (month === 0 && day < 0)) {
+        years--;
+    }
     return years;
 }
 
