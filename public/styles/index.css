@@ -1,0 +1,111 @@
+/* Reset and base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe0f0, #fef7ff);
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 1.5rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Heading with soft glow */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #e639af;
+    text-shadow: 0 0 8px rgba(230, 57, 175, 0.5),
+                 0 0 15px rgba(230, 57, 175, 0.3);
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Gallery - mobile carousel */
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+    scrollbar-width: none; /* hide scrollbar on Firefox */
+}
+.gallery::-webkit-scrollbar {
+    display: none; /* hide scrollbar on Chrome/Safari */
+}
+
+.gallery-item {
+  position: relative;
+  flex: 0 0 70%;          /* one main card visible on mobile */
+  height: 400px;          
+  margin: 10px;
+  border-radius: 20px;
+  overflow: hidden;       
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  scroll-snap-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(230, 57, 175, 0.3);
+}
+
+/* Ensure images always fill cards with no whitespace */
+.card, .gallery img {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery img {
+    object-fit: cover;     
+    display: block;         
+}
+
+/* Footer with soft glow */
+.footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #888;
+    text-shadow: 0 0 6px rgba(136, 136, 136, 0.4);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .gallery-item {
+        flex: 0 0 40%; /* 2 in view */
+    }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .gallery-item {
+        flex: 0 0 30%; /* 3 in view */
+    }
+}

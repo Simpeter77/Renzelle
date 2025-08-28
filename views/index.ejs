@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="icon" href="<%= icon %>">
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy <%= age %> Birthday, <%= title %>! 🎂</h1>
+        <p><%= message %></p>
+
+        <div class="gallery">
+            <% for (let i = 0; i < pictures.length; i++) { %>
+                <div class="gallery-item">
+                     <div class="card">
+                        <img src="<%= pictures[i] %>" alt="Picture <%= i+1 %>">
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="footer">
+            Made with 💕 by your pinsan <%= developer %>
+        </div>
+    </div>
+</body>
+</html>
